@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Slider</title>
     <style>
-        body {
+          body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -55,11 +55,11 @@
         }
 
         .index {
-            width: 120px; /* 버튼의 너비 */
-            height: 40px; /* 버튼의 높이 */
-            margin: 0 1px; /* 간격을 넓게 조정 */
+            width: 50px;
+            height: 30px;
+            margin: 0 5px;
             color: white;
-            font-size: 13px; /* 글자 크기 */
+            font-size: 14px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -69,124 +69,51 @@
             pointer-events: all;
             transition: background-color 0.3s;
             background-color: rgba(0, 0, 0, 0.5); /* 기본은 반투명 */
-            padding: 10px; /* 내부 여백을 추가하여 글자를 중앙에 맞춤 */
         }
 
-        .index:nth-child(1) { background-color: rgba(231, 76, 60, 0.3); } /* Red */
-        .index:nth-child(2) { background-color: rgba(243, 156, 18, 0.3); } /* Orange */
-        .index:nth-child(3) { background-color: rgba(39, 174, 96, 0.3); } /* Green */
-        .index:nth-child(4) { background-color: rgba(142, 68, 173, 0.3); } /* Purple */
-        .index:nth-child(5) { background-color: rgba(52, 152, 219, 0.3); } /* Blue */
+
+        .index:nth-child(1) { background-color: rgba(231, 76, 60, 0.5); } /* Red */
+        .index:nth-child(2) { background-color: rgba(243, 156, 18, 0.5); } /* Orange */
+        .index:nth-child(3) { background-color: rgba(39, 174, 96, 0.5); } /* Green */
+        .index:nth-child(4) { background-color: rgba(142, 68, 173, 0.5); } /* Purple */
+        .index:nth-child(5) { background-color: rgba(52, 152, 219, 0.5); } /* Blue */
+        .index:nth-child(6) { background-color: rgba(26, 188, 156, 0.5); } /* Turquoise */
 
         .index.active:nth-child(1) { background-color: #e74c3c; } /* Red */
         .index.active:nth-child(2) { background-color: #f39c12; } /* Orange */
         .index.active:nth-child(3) { background-color: #27ae60; } /* Green */
         .index.active:nth-child(4) { background-color: #8e44ad; } /* Purple */
         .index.active:nth-child(5) { background-color: #3498db; } /* Blue */
+        .index.active:nth-child(6) { background-color: #1abc9c; } /* Turquoise */
 
-        button {
-            background-color: #106f30;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            margin: 0 5px;
-        }
-
-        button:focus {
-            outline: none;
-        }
-
-        button.prev {
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            font-size: 18px;
-        }
-
-        button.next {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            font-size: 18px;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .top-buttons {
-            position: absolute;
-            top: 20px;
-            left: 10px;
-            display: flex;
-            gap: 10px;
-        }
-
-        @media (max-width: 600px) {
-            .slider {
-                width: 100%;
-            }
-
-            button {
-                padding: 5px 10px;
-                font-size: 12px;
-            }
-
-            .index {
-                width: 80px; /* 작은 화면에서는 버튼 너비 감소 */
-                height: 30px; /* 작은 화면에서는 버튼 높이 감소 */
-                font-size: 12px; /* 작은 화면에서는 글자 크기 감소 */
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="top-buttons">
-        <button class="back-button" onclick="goBack()">Back</button>
-        <button class="back-button" onclick="location.href='AR_main.html'">AR Home</button>
-    </div>
-
-    <div class="slider-container">
+    <button class="back-button" onclick="goBack()">Back</button>
+    <div class="slider">
+        <div class="slider-inner">
+            <!-- 한국어 버전 이미지 -->
+            <img class="kr" src="/imgs/fun.jpg" alt="Image 1">
+            <img class="kr" src="/imgs/Content.png" alt="Image 2">
+            <img class="kr" src="/imgs/escaped.webp" alt="Image 3">
+            <!-- 영어 버전 이미지 -->
+            <img class="en" src="/imgs/park1.png" alt="Image 1" style="display: none;">
+            <img class="en" src="/imgs/temp_char.webp" alt="Image 2" style="display: none;">
+            <img class="en" src="/imgs/Vector.png" alt="Image 3" style="display: none;">
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
         <div class="indices">
-            <!-- 인덱스 버튼 -->
-            <div class="index" onclick="goToSlide(0)">전체 지도(Map)</div>
-            <div class="index" onclick="goToSlide(1)">동물원(Zoo)</div>
-            <div class="index" onclick="goToSlide(2)">바다동물관(Marine)</div>
-            <div class="index" onclick="goToSlide(3)">맹수마을(Beast)</div>
-            <div class="index" onclick="goToSlide(4)">놀이공원(Amusement)</div>
-        </div>
-        <div class="slider">
-            <div class="slider-inner">
-                <!-- 한국어 버전 이미지 -->
-                <img class="kr" src="/imgs/fun.jpg" alt="Image 1">
-                <img class="kr" src="/imgs/Content.png" alt="Image 2">
-                <img class="kr" src="/imgs/escaped.webp" alt="Image 3">
-                <!-- 영어 버전 이미지 -->
-                <img class="en" src="/imgs/park1.png" alt="Image 1" style="display: none;">
-                <img class="en" src="/imgs/temp_char.webp" alt="Image 2" style="display: none;">
-                <img class="en" src="/imgs/Vector.png" alt="Image 3" style="display: none;">
-            </div>
-            <button class="prev" onclick="prevSlide()">&#10094;</button>
-            <button class="next" onclick="nextSlide()">&#10095;</button>
+            <!-- 인덱스 버튼 추가 -->
+            <div class="index" onclick="goToSlide(0)">전체지도</div>
+            <div class="index" onclick="goToSlide(1)">맹수마을</div>
+            <div class="index" onclick="goToSlide(2)">꼬마동물마을</div>
+            <div class="index" onclick="goToSlide(3)">물새장</div>
+            <div class="index" onclick="goToSlide(4)">원숭이마을</div>
+            <div class="index" onclick="goToSlide(5)">초식동물마을</div>
         </div>
     </div>
-    <div class="button-group">
-        <button class="vr-map" onclick="goToVRMap()">VR Map</button>
-        <button class="language-toggle" onclick="toggleLanguage()">Switch to English</button>
-        <button class="google-map" onclick="goToGoogleMap()">Google Map</button>
-    </div>
+    <button class="language-toggle" onclick="toggleLanguage()">Switch to English</button>
     <script>
         let currentIndex = 0;
         let currentLanguage = 'kr'; // 기본은 한국어
@@ -219,17 +146,23 @@
         function toggleLanguage() {
             const krImages = document.querySelectorAll('.slider-inner .kr');
             const enImages = document.querySelectorAll('.slider-inner .en');
+            const krIndices = document.querySelectorAll('.index.kr');
+            const enIndices = document.querySelectorAll('.index.en');
             const languageToggleBtn = document.querySelector('.language-toggle');
 
             if (currentLanguage === 'kr') {
                 currentLanguage = 'en';
                 krImages.forEach(img => img.style.display = 'none');
                 enImages.forEach(img => img.style.display = 'block');
+                krIndices.forEach(index => index.style.display = 'none');
+                enIndices.forEach(index => index.style.display = 'block');
                 languageToggleBtn.textContent = '한국어로 전환';
             } else {
                 currentLanguage = 'kr';
                 krImages.forEach(img => img.style.display = 'block');
                 enImages.forEach(img => img.style.display = 'none');
+                krIndices.forEach(index => index.style.display = 'block');
+                enIndices.forEach(index => index.style.display = 'none');
                 languageToggleBtn.textContent = 'Switch to English';
             }
             currentIndex = 0;
@@ -253,14 +186,6 @@
 
         function goToSlide(index) {
             showSlide(index);
-        }
-
-        function goToVRMap() {
-            window.location.href = 'vr_map.html'; // VR 지도로 이동
-        }
-
-        function goToGoogleMap() {
-            window.open('https://www.google.com/maps/d/u/0/viewer?hl=ko&ie=UTF8&msa=0&ll=37.54893300000001%2C127.081969&spn=0.012572%2C0.019248&z=16&mid=1fkFcpQ17x6RV9kWFkXcpvoCrfvI', '_blank'); // Google 맵으로 이동
         }
 
         // 초기 슬라이드 설정
