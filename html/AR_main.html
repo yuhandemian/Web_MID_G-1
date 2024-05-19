@@ -4,107 +4,67 @@
     <meta charset="utf-8">
     <title>My first three.js app with Video Background and GLB Model</title>
     <style>
-        body { margin: 0; overflow: hidden; }
-        canvas { display: block; }
-        #video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-        #overlay { position: fixed; top: 20px; left: 20px; color: black; z-index: 10; }
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        canvas {
+            display: block;
+        }
+        #video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        #overlay {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 80%;
+            z-index: 10;
+        }
         .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #000;
+            padding: 30px 10px;
+            background-color: #0c3907;
             color: #fff;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 2.5em;
+            text-align: center;
             border: none;
             cursor: pointer;
-            margin-right: 10px; /* 버튼 사이의 간격 */
-        }
-        #speechBubble {
-            position: absolute;
-            top: 20%; /* Adjust this value to move the bubble up or down */
-            left: 55%; /* Adjust this value to move the bubble left or right */
-            width: 200px; /* Width of the bubble */
-            height: 100px; /* Height of the bubble */
-            background: white;
-            border: 2px solid black;
-            border-radius: 50px;
-            padding: 20px;
             box-sizing: border-box;
-            font-size: 16px;
-            text-align: center;
-            z-index: 20; /* Ensure it's above other elements */
-            transform: translate(-50%, -50%); /* Center the bubble */
         }
-
-        #speechBubble:after {
-            content: '';
-            position: absolute;
-            bottom: -40px; /* Position the tip of the arrow */
-            left: 30%;
-            border-width: 20px;
-            border-style: solid;
-            border-color: white transparent transparent transparent;
-            transform: translateX(-50%);
-        }
-        #description {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
-            color: white;
-            padding: 20px;
-            box-sizing: border-box;
-            font-size: 23px;
-            z-index: 15;
-            text-align: center;
-        }
-        #toggleButton {
-
-            position: fixed; /* Changed from 'right' to 'fixed' */
-            top: 10px;
-            right: 10px; /* Changed from 'left' to 'right' */
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
-            z-index: 102;
+        @media (max-width: 600px) {
+            #overlay {
+                grid-template-columns: repeat(2, 1fr);
+                width: 90%;
             }
-
-
+            .btn {
+                padding: 30px;
+                font-size: 2em;
+            }
+        }
     </style>
 </head>
 <body>
     <video id="video" autoplay muted playsinline></video>
     <div id="overlay">
-        <h1>Welcome to AR Guide</h1>
-
-        <button onclick="location.href='index.html'" class="btn">Webpage</button>
-        <button onclick="location.href='map.html'" class="btn">Map</button>
-        <button onclick="location.href='search_animal.html'" class="btn">Search Animal</button>
+        <button onclick="location.href='index.html'" class="btn">홈페이지(Webpage)</button>
+        <button onclick="location.href='map.html'" class="btn">지도(Map)</button>
+        <button onclick="location.href='search_animal.html'" class="btn">동물 찾기(Search Animal)</button>
+        <button onclick="location.href='how_to_use.html'" class="btn">사용방법 (How to use)</button>
+        <button onclick="location.href='https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png'" class="btn">AR캐릭터 소환서(AR Character Summon code)</button>
+        <button onclick="location.href='ar_camera.html'" class="btn">AR 카메라 (AR camera)</button>
     </div>
-
-    <div id="speechBubble">Hi, my name is Linnie welcome to the AR world!</div>
-
-    <button id="toggleButton" onclick="toggleDescription()">Description hide/show</button>
-
-    <div id="description">
-        <p>
-
-            Q: How do I use it?
-        </p>
-        <p>
-            A: You can resize the 3D model by zooming in and out!!
-        </p>
-        <p>
-
-If you hold down the mouse button and move it, you can see the object from different angles.
-        </p>
-        <p>
-            Additionally, you can move the model by clicking and dragging with the left mouse button or by using two fingers on a touch device!!
-        </p>
-    </div>
-
 
     <script type="module">
         import * as THREE from "https://unpkg.com/three@0.126.1/build/three.module.js";
@@ -141,7 +101,7 @@ If you hold down the mouse button and move it, you can see the object from diffe
         loader.load('/models/main.glb', function(gltf) {
             scene.add(gltf.scene);
             gltf.scene.scale.set(1.5, 1.5, 1.5); // Adjust the scale of the model
-            gltf.scene.position.set(0, 0, 0); // Adjust the position of the model
+            gltf.scene.position.set(0, -1, 0); // Adjust the position of the model down
             animate();
         }, undefined, function(error) {
             console.error('Error loading the GLB file:', error);
@@ -161,20 +121,7 @@ If you hold down the mouse button and move it, you can see the object from diffe
         }
 
         animate();
-
-        function toggleDescription() {
-        var description = document.getElementById('description');
-        if (description.style.display === 'none') {
-        description.style.display = 'block';
-        } else {
-        description.style.display = 'none';
-        }
-    }
-
-    // Get the toggle button by its ID and add a click event listener
-    document.getElementById('toggleButton').addEventListener('click', toggleDescription);
-
-    // ... (the rest of your Three.js and media stream setup code) ...
+     
     </script>
 </body>
 </html>

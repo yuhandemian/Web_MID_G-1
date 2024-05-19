@@ -161,35 +161,34 @@
     <div class="slider-container">
         <div class="indices">
             <!-- 인덱스 버튼 -->
-            <div class="index" onclick="goToSlide(0)">전체 지도(Map)</div>
-            <div class="index" onclick="goToSlide(1)">동물원 지도(Zoo)</div>
-            <div class="index" onclick="goToSlide(2)">맹수마을(Ferocios)</div>
-            <div class="index" onclick="goToSlide(3)">대피경로(Evacuation map)</div>
-            <div class="index" onclick="goToSlide(4)">위성지도(Satellite map)</div>
+            <div class="index" onclick="goToSlide(0)">AR 카메라 이용방법 1 (AR camera 1)</div>
+            <div class="index" onclick="goToSlide(1)">AR 카메라 이용방법 2 (AR camera 2)</div>
+            <div class="index" onclick="goToSlide(2)">3D모델 이동방법(move)</div>
+            <div class="index" onclick="goToSlide(3)">3D모델 확대/축소(size)</div>
+            <div class="index" onclick="goToSlide(4)">3D모델 다른 각도로 보기(angle)</div>
         </div>
         <div class="slider">
             <div class="slider-inner">
                 <!-- 한국어 버전 이미지 -->
-                <img class="kr" src="/imgs/main_map.png" alt="Image 1">
-                <img class="kr" src="/imgs/zoo_map.jpg" alt="Image 2">
-                <img class="kr" src="/imgs/Ferocios.jpg" alt="Image 3">
-                <img class="kr" src="/imgs/emergency.jpg" alt="Image 4">
-                <img class="kr" src="/imgs/satellite_img.png" alt="Image 5">
+                <img class="kr" src="/imgs/howtouse.jpg" alt="Image 1">
+                <img class="kr" src="/imgs/howtouse2.png" alt="Image 2">
+                <img class="kr" src="/imgs/move.png" alt="Image 3">
+                <img class="kr" src="/imgs/sizeup.png" alt="Image 4">
+                <img class="kr" src="/imgs/angle.png" alt="Image 5">
                 <!-- 영어 버전 이미지 -->
-                <img class="en" src="/imgs/main_map.png" alt="Image 1" style="display: none;">
-                <img class="en" src="/imgs/zoo_map.jpg" alt="Image 2" style="display: none;">
-                <img class="en" src="/imgs/Ferocios.jpg" alt="Image 3" style="display: none;">
-                <img class="en" src="/imgs/emergency.jpg" alt="Image 3" style="display: none;">
-                <img class="en" src="/imgs/satellite_en.png" alt="Image 3" style="display: none;">
+                <img class="en" src="/imgs/howtouse.jpg" alt="Image 1" style="display: none;">
+                <img class="en" src="/imgs/howtouse2.png" alt="Image 2" style="display: none;">
+                <img class="en" src="/imgs/move.png" alt="Image 3" style="display: none;">
+                <img class="en" src="/imgs/sizeup.png" alt="Image 3" style="display: none;">
+                <img class="en" src="/imgs/angle.png" alt="Image 3" style="display: none;">
             </div>
             <button class="prev" onclick="prevSlide()">&#10094;</button>
             <button class="next" onclick="nextSlide()">&#10095;</button>
         </div>
     </div>
     <div class="button-group">
-        <button class="vr-map" onclick="goToVRMap()">VR Map</button>
+
         <button class="language-toggle" onclick="toggleLanguage()">Switch to English</button>
-        <button class="google-map" onclick="goToGoogleMap()">Google Map</button>
     </div>
     <script>
         let currentIndex = 0;
@@ -259,14 +258,7 @@
             showSlide(index);
         }
 
-        function goToVRMap() {
-            window.location.href = 'vr_map.html'; // VR 지도로 이동
-        }
-
-        function goToGoogleMap() {
-            window.open('https://www.google.com/maps/d/u/0/viewer?hl=ko&ie=UTF8&msa=0&ll=37.54893300000001%2C127.081969&spn=0.012572%2C0.019248&z=16&mid=1fkFcpQ17x6RV9kWFkXcpvoCrfvI', '_blank'); // Google 맵으로 이동
-        }
-
+   
         // 초기 슬라이드 설정
         window.addEventListener('resize', () => showSlide(currentIndex));
         showSlide(currentIndex);
