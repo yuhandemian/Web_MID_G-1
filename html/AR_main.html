@@ -43,6 +43,11 @@
             cursor: pointer;
             box-sizing: border-box;
         }
+        .btn2 img {
+            width: 200px;  /* 원하는 이미지 너비 */
+            height: auto;  /* 이미지 비율을 유지하며 높이를 자동으로 조정 */
+            display: block;
+        }
         @media (max-width: 600px) {
             #overlay {
                 grid-template-columns: repeat(2, 1fr);
@@ -70,8 +75,12 @@
         <button onclick="location.href='map.html'" class="btn">지도(Map)</button>
         <button onclick="location.href='search_animal.html'" class="btn">동물 찾기(Search Animal)</button>
         <button onclick="location.href='how_to_use.html'" class="btn">사용방법 (How to use)</button>
-        <button onclick="location.href='https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png'" class="btn">AR캐릭터 소환서(AR Character Summon code)</button>
-        <button onclick="location.href='ar_camera.html'" class="btn">AR 카메라 (AR camera)</button>
+        <a href="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" class="btn2">
+            <img src="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" alt="AR 캐릭터 소환서" style="width:200px;height:200px;">
+        </a>        
+        <a href="ar_camera.html" class="btn2">
+            <img src="/imgs/camera.jpg" alt="AR 카메라 (AR camera)">
+        </a>
     </div>
 
     <script type="module">
