@@ -48,18 +48,19 @@
         .indices {
             display: flex;
             justify-content: center;
-            position: relative; /* 위치를 사진 바깥 위로 조정 */
-            top: -40px; /* 슬라이더 위에 위치하도록 조정 */
+            position: relative;
+            top: -40px;
             width: 100%;
             pointer-events: none;
+            flex-wrap: wrap;
         }
 
         .index {
-            width: 120px; /* 버튼의 너비 */
-            height: 40px; /* 버튼의 높이 */
-            margin: 0 1px; /* 간격을 넓게 조정 */
+            width: 120px;
+            height: 40px;
+            margin: 0 1px;
             color: white;
-            font-size: 13px; /* 글자 크기 */
+            font-size: 13px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -68,21 +69,21 @@
             cursor: pointer;
             pointer-events: all;
             transition: background-color 0.3s;
-            background-color: rgba(0, 0, 0, 0.5); /* 기본은 반투명 */
-            padding: 10px; /* 내부 여백을 추가하여 글자를 중앙에 맞춤 */
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
         }
 
         .index:nth-child(1) { background-color: rgba(39, 174, 96, 0.3); } 
-        .index:nth-child(2) { background-color: rgba(39, 174, 96, 0.3); } /* Orange */
-        .index:nth-child(3) { background-color: rgba(39, 174, 96, 0.3); } /* Green */
+        .index:nth-child(2) { background-color: rgba(39, 174, 96, 0.3); } 
+        .index:nth-child(3) { background-color: rgba(39, 174, 96, 0.3); } 
         .index:nth-child(4) { background-color: rgba(39, 174, 96, 0.3); } 
         .index:nth-child(5) { background-color: rgba(39, 174, 96, 0.3); } 
 
-        .index.active:nth-child(1) { background-color: #0b2e19 ;} /* Red */
-        .index.active:nth-child(2) { background-color: #0b2e19 ; } /* Orange */
-        .index.active:nth-child(3) { background-color: #0b2e19 ; } /* Green */
-        .index.active:nth-child(4) { background-color: #0b2e19 ; } /* Purple */
-        .index.active:nth-child(5) { background-color: #0b2e19 ; } /* Blue */
+        .index.active:nth-child(1) { background-color: #0b2e19; } 
+        .index.active:nth-child(2) { background-color: #0b2e19; } 
+        .index.active:nth-child(3) { background-color: #0b2e19; } 
+        .index.active:nth-child(4) { background-color: #0b2e19; } 
+        .index.active:nth-child(5) { background-color: #0b2e19; } 
 
         button {
             background-color: #106f30;
@@ -132,6 +133,7 @@
             left: 10px;
             display: flex;
             gap: 10px;
+            z-index: 10; /* 인덱스 버튼 위에 위치하도록 설정 */
         }
 
         .ar-home-button {
@@ -156,38 +158,25 @@
             }
 
             .index {
-                width: 80px; /* 작은 화면에서는 버튼 너비 감소 */
-                height: 30px; /* 작은 화면에서는 버튼 높이 감소 */
-                font-size: 12px; /* 작은 화면에서는 글자 크기 감소 */
+                width: 80px;
+                height: 30px;
+                font-size: 12px;
             }
 
             .ar-home-button {
-                font-size: 20px;
-                padding: 10px 20px;
+                font-size: 16px;
+                padding: 10px 15px;
             }
         }
     </style>
-
 </head>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TMKTYMCBR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5TMKTYMCBR');
-</script>
 
 <body>
     <div class="top-buttons">
         <button class="ar-home-button" onclick="location.href='AR_main.html'">Back</button>
     </div>
-
     <div class="slider-container">
         <div class="indices">
-            <!-- 인덱스 버튼 -->
             <div class="index" onclick="goToSlide(0)">전체 지도(Map)</div>
             <div class="index" onclick="goToSlide(1)">동물원 지도(Zoo)</div>
             <div class="index" onclick="goToSlide(2)">맹수마을(Ferocios)</div>
@@ -196,13 +185,11 @@
         </div>
         <div class="slider">
             <div class="slider-inner">
-                <!-- 한국어 버전 이미지 -->
                 <img class="kr" src="/imgs/map_main_map.jpg" alt="Image 1">
                 <img class="kr" src="/imgs/map_zoo_map.jpg" alt="Image 2">
                 <img class="kr" src="/imgs/map_Ferocios.jpg" alt="Image 3">
                 <img class="kr" src="/imgs/emergency.jpg" alt="Image 4">
                 <img class="kr" src="/imgs/map_satellite.jpg" alt="Image 5">
-                <!-- 영어 버전 이미지 -->
                 <img class="en" src="/imgs/map_main_map.jpg" alt="Image 1" style="display: none;">
                 <img class="en" src="/imgs/map_zoo_map.jpg" alt="Image 2" style="display: none;">
                 <img class="en" src="/imgs/map_Ferocios.jpg" alt="Image 3" style="display: none;">
@@ -220,13 +207,13 @@
     </div>
     <script>
         let currentIndex = 0;
-        let currentLanguage = 'kr'; // 기본은 한국어
+        let currentLanguage = 'kr';
 
         function showSlide(index) {
             const sliderInner = document.querySelector('.slider-inner');
             const slides = document.querySelectorAll(`.slider-inner .${currentLanguage}`);
             const totalSlides = slides.length;
-            const slideWidth = slides[0].clientWidth; // 슬라이드의 너비를 계산
+            const slideWidth = slides[0].clientWidth;
             if (index >= totalSlides) {
                 currentIndex = 0;
             } else if (index < 0) {
@@ -267,10 +254,6 @@
             showSlide(currentIndex);
         }
 
-        function goBack() {
-            window.history.back();
-        }
-
         function updateIndices() {
             const indices = document.querySelectorAll('.index');
             indices.forEach((index, i) => {
@@ -287,14 +270,13 @@
         }
 
         function goToVRMap() {
-            window.location.href = 'vr_map.html'; // VR 지도로 이동
+            window.location.href = 'vr_map.html';
         }
 
         function goToGoogleMap() {
-            window.open('https://www.google.com/maps/d/u/0/viewer?hl=ko&ie=UTF8&msa=0&ll=37.54893300000001%2C127.081969&spn=0.012572%2C0.019248&z=16&mid=1fkFcpQ17x6RV9kWFkXcpvoCrfvI', '_blank'); // Google 맵으로 이동
+            window.open('https://www.google.com/maps/d/u/0/viewer?hl=ko&ie=UTF8&msa=0&ll=37.54893300000001%2C127.081969&spn=0.012572%2C0.019248&z=16&mid=1fkFcpQ17x6RV9kWFkXcpvoCrfvI', '_blank');
         }
 
-        // 초기 슬라이드 설정
         window.addEventListener('resize', () => showSlide(currentIndex));
         showSlide(currentIndex);
     </script>
