@@ -41,6 +41,43 @@
             opacity: 0;
             pointer-events: none;
         }
+
+        /* 모바일 버전 스타일 조정 */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .animal-grid .animal-item {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+            }
+
+            .header-content .btn {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+                background-color: green; /* 버튼 색상 변경 */
+            }
+
+            .animal-navigation ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .animal-navigation ul li {
+                margin: 5px;
+            }
+
+            .animal-navigation ul li a {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -50,7 +87,7 @@
         </div>
         <nav class="animal-navigation">
             <ul>
-                <li><a href="#little-animal-village" class="animal-item"><img src="../imgs/icon/little_icon.png" alt="Little Animals"> 꼬마동물마을(Small-Animal Vilage)</a></li>
+                <li><a href="#little-animal-village" class="animal-item"><img src="../imgs/icon/little_icon.png" alt="Little Animals"> 꼬마동물마을(Small-Animal Village)</a></li>
                 <li><a href="#beast-village" class="animal-item"><img src="../imgs/icon/beast_icon.png" alt="Beasts"> 맹수마을(Ferocious-Animal Village)</a></li>
                 <li><a href="#tropical-animal-section" class="animal-item"><img src="../imgs/icon/turtle_icon.png" alt="Tropical Animals">열대동물관(Tropical Animal House)</a></li>
                 <li><a href="#water-bird-area" class="animal-item"><img src="../imgs/icon/waterbird_icon.png" alt="Water Birds">물새장(Aquatic Village)</a></li>
@@ -61,6 +98,9 @@
         </nav>
     </header>
     <main>
+        <section class="instructions">
+            <p>각 파트를 클릭하면 해당 섹션으로 이동합니다. (Click on each part to move to the corresponding section.)</p>
+        </section>
         <section id="little-animal-village" class="section-bg-little">
             <h2>꼬마동물마을</h2>
             <div class="animal-grid">
@@ -376,7 +416,7 @@
                 <div class="animal-item">
                     <h3>점박이물범(Spotted Seal)</h3>
                     <p>A species of seal known for its distinctive spotted coat, found in the North Pacific Ocean.</p>
-                    <button onclick="location.href='https://namu.wiki/w/%EC%A0%90%EB%B0%95%EC%9D%B4%EB%AC%BC%EB%B2%94'" class="btn">AnimalWiki</button>
+                    <button onclick="location.href='https://namu.wiki/w/%EC%A0%90%EB%B0%95%EC%9D%B4%EB%AC%B8%EB%B2%94'" class="btn">AnimalWiki</button>
                     <button onclick="location.href='../html/2D_Story/animalFamily/waterAnimal/waterTiger.html'" class="btn">2D Story</button>
                 </div>
             </div>
