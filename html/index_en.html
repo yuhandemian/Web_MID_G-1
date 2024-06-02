@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Children's Grand Park Service</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
@@ -43,15 +43,15 @@
             });
 
             $(".LearnBtn, .LearnBtnA, .LearnBtnMain").click(function (event) {
-                event.preventDefault(); // 링크의 기본 동작 방지
+                event.preventDefault(); // Prevent the default action
 
-                // 이동할 위치 계산 (예: main2 섹션으로 이동)
+                // Calculate the position to scroll to (e.g., scroll to main2 section)
                 var targetPosition = $(".main2").offset().top;
 
-                // 스크롤 애니메이션
+                // Scroll animation
                 $("html, body").animate({
                     scrollTop: targetPosition,
-                }, 900); // 이동 속도 (밀리초 단위)
+                }, 900); // Speed of the scroll (in milliseconds)
             });
         });
     </script>
