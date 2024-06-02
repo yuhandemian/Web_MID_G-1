@@ -134,6 +134,17 @@
             gap: 10px;
         }
 
+        .ar-home-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
         @media (max-width: 600px) {
             .slider {
                 width: 100%;
@@ -148,6 +159,11 @@
                 width: 80px; /* 작은 화면에서는 버튼 너비 감소 */
                 height: 30px; /* 작은 화면에서는 버튼 높이 감소 */
                 font-size: 12px; /* 작은 화면에서는 글자 크기 감소 */
+            }
+
+            .ar-home-button {
+                font-size: 20px;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -166,8 +182,7 @@
 
 <body>
     <div class="top-buttons">
-        <button class="back-button" onclick="goBack()">Back</button>
-        <button class="back-button" onclick="location.href='AR_main.html'">AR Home</button>
+        <button class="ar-home-button" onclick="location.href='AR_main.html'">Back</button>
     </div>
 
     <div class="slider-container">
