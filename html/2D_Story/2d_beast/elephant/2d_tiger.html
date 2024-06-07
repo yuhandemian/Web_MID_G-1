@@ -6,121 +6,155 @@
     <title>Image Slider</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            position: relative;
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f0f0f0;
+          position: relative;
         }
 
         .slider {
-            width: 100%;
-            max-width: 600px;
-            overflow: hidden;
-            position: relative;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            background: #fff;
+          width: 100%;
+          max-width: 600px;
+          overflow: hidden;
+          position: relative;
+          border: 2px solid #ddd;
+          border-radius: 10px;
+          background: #fff;
         }
 
         .slider-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+          display: flex;
+          transition: transform 0.5s ease-in-out;
         }
 
-        .slider-inner img {
-            width: 100%;
-            height: 400px; /* Fixed height */
-            object-fit: cover; /* Maintain aspect ratio */
-            flex-shrink: 0;
-            border-right: 2px solid #ddd;
+        .slide {
+          position: relative;
+          width: 100%;
+          height: 400px; /* Fixed height */
+          flex-shrink: 0;
+          border-right: 2px solid #ddd;
+        }
+
+        .slide img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Maintain aspect ratio */
+        }
+
+        .slide .text {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          color: white;
+          font-size: 24px;
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          border-radius: 5px;
         }
 
         button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 20px; /* Increased padding */
-            cursor: pointer;
-            z-index: 100;
-            font-size: 18px; /* Increased font size */
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          padding: 20px; /* Increased padding */
+          cursor: pointer;
+          z-index: 100;
+          font-size: 18px; /* Increased font size */
         }
 
         button.prev {
-            left: 10px;
+          left: 10px;
         }
 
         button.next {
-            right: 10px;
+          right: 10px;
         }
 
         button.language-toggle {
-            position: static;
-            margin-top: 20px;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+          position: static;
+          margin-top: 20px;
+          background-color: #007bff;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
         }
 
         button:focus {
-            outline: none;
+          outline: none;
         }
 
         .back-button {
-            position: absolute;
-            top: 80px;
-            left: 10px;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 100;
+          position: absolute;
+          top: 80px;
+          left: 10px;
+          background-color: #007bff;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          z-index: 100;
         }
 
         @media (max-width: 600px) {
-            .slider {
-                width: 100%;
-            }
+          .slider {
+            width: 100%;
+          }
 
-            button {
-                padding: 10px; /* Increased padding for mobile */
-                font-size: 14px;
-            }
+          button {
+            padding: 10px; /* Increased padding for mobile */
+            font-size: 14px;
+          }
 
-            button.language-toggle {
-                padding: 5px 10px;
-                font-size: 14px;
-            }
+          button.language-toggle {
+            padding: 5px 10px;
+            font-size: 14px;
+          }
 
-            .back-button {
-                padding: 5px 10px;
-                font-size: 14px;
-            }
+          .back-button {
+            padding: 5px 10px;
+            font-size: 14px;
+          }
         }
-    </style>
+      </style>
 </head>
 <body>
     <button class="back-button" onclick="goBack()">Back</button>
     <div class="slider">
         <div class="slider-inner">
             <!-- 한국어 버전 이미지 -->
-            <img class="kr" src="/html/2D_Story/2d_beast/elephant/2d_ele_1.png" alt="Image 1">
-            <img class="kr" src="/html/2D_Story/2d_beast/elephant/2d_ele_2.png" alt="Image 2">
-            <img class="kr" src="/html/2D_Story/2d_beast/elephant/2d_ele_3.png" alt="Image 3">
+    
+            <div class="slide kr">
+                <img src="/html/2D_Story/2d_beast/elephant/호랑이.jpeg" alt="사자" />
+                <div class="text">
+                    벵골호랑이는 주로 인도에서 발견되는 호랑이의 아종으로, 그 힘과 아름다움으로 유명합니다. <br />
+                    이 호랑이는 세계에서 가장 큰 고양잇과 동물 중 하나로, 보통 3미터까지 자라며 몸무게는 300킬로그램에 이를 수 있습니다. <br />
+                    벵골호랑이는 독특한 줄무늬를 가지고 있으며, 이는 각 개체마다 다릅니다. <br />
+                    먹이로는 주로 사슴, 멧돼지, 그리고 소형 포유류를 사냥합니다.
+                </div>
+              </div>
+    
             <!-- 영어 버전 이미지 -->
-            <img class="en" src="/html/2D_Story/2d_beast/elephant/2d_ele_1.png" alt="Image 1" style="display: none;">
-            <img class="en" src="/html/2D_Story/2d_beast/elephant/2d_ele_2.png" alt="Image 2" style="display: none;">
-            <img class="en" src="/html/2D_Story/2d_beast/elephant/2d_ele_3.png" alt="Image 3" style="display: none;">
+    
+            <div class="slide en" style="display: none;">
+                <img src="/html/2D_Story/2d_beast/elephant/호랑이.jpeg" alt="Lion" />
+                <div class="text">
+                    The Bengal tiger is a subspecies of tiger found primarily in India, known for its power and beauty. <br />
+                    This tiger is one of the largest cat species in the world, typically growing up to 3 meters in length and weighing up to 300 kilograms. <br />
+                    Bengal tigers have distinctive stripes that are unique to each individual. <br />
+                    Their diet mainly consists of deer, wild boar, and small mammals.
+                </div>
+              </div>
+         
+
         </div>
     </div>
     <button class="prev" onclick="prevSlide()">&#10094;</button>

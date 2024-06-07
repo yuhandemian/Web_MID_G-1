@@ -6,121 +6,162 @@
     <title>Image Slider</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            position: relative;
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f0f0f0;
+          position: relative;
         }
 
         .slider {
-            width: 100%;
-            max-width: 600px;
-            overflow: hidden;
-            position: relative;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            background: #fff;
+          width: 100%;
+          max-width: 600px;
+          overflow: hidden;
+          position: relative;
+          border: 2px solid #ddd;
+          border-radius: 10px;
+          background: #fff;
         }
 
         .slider-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+          display: flex;
+          transition: transform 0.5s ease-in-out;
         }
 
-        .slider-inner img {
-            width: 100%;
-            height: 400px; /* Fixed height */
-            object-fit: cover; /* Maintain aspect ratio */
-            flex-shrink: 0;
-            border-right: 2px solid #ddd;
+        .slide {
+          position: relative;
+          width: 100%;
+          height: 400px; /* Fixed height */
+          flex-shrink: 0;
+          border-right: 2px solid #ddd;
+        }
+
+        .slide img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Maintain aspect ratio */
+        }
+
+        .slide .text {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          color: white;
+          font-size: 24px;
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          border-radius: 5px;
         }
 
         button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 20px; /* Increased padding */
-            cursor: pointer;
-            z-index: 100;
-            font-size: 18px; /* Increased font size */
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          padding: 20px; /* Increased padding */
+          cursor: pointer;
+          z-index: 100;
+          font-size: 18px; /* Increased font size */
         }
 
         button.prev {
-            left: 10px;
+          left: 10px;
         }
 
         button.next {
-            right: 10px;
+          right: 10px;
         }
 
         button.language-toggle {
-            position: static;
-            margin-top: 20px;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+          position: static;
+          margin-top: 20px;
+          background-color: #007bff;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
         }
 
         button:focus {
-            outline: none;
+          outline: none;
         }
 
         .back-button {
-            position: absolute;
-            top: 80px;
-            left: 10px;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 100;
+          position: absolute;
+          top: 80px;
+          left: 10px;
+          background-color: #007bff;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          z-index: 100;
         }
 
         @media (max-width: 600px) {
-            .slider {
-                width: 100%;
-            }
+          .slider {
+            width: 100%;
+          }
 
-            button {
-                padding: 10px; /* Increased padding for mobile */
-                font-size: 14px;
-            }
+          button {
+            padding: 10px; /* Increased padding for mobile */
+            font-size: 14px;
+          }
 
-            button.language-toggle {
-                padding: 5px 10px;
-                font-size: 14px;
-            }
+          button.language-toggle {
+            padding: 5px 10px;
+            font-size: 14px;
+          }
 
-            .back-button {
-                padding: 5px 10px;
-                font-size: 14px;
-            }
+          .back-button {
+            padding: 5px 10px;
+            font-size: 14px;
+          }
         }
-    </style>
+      </style>
 </head>
 <body>
     <button class="back-button" onclick="goBack()">Back</button>
     <div class="slider">
         <div class="slider-inner">
             <!-- 한국어 버전 이미지 -->
+            <div class="slide kr">
+                <img src="/html/2D_Story/2d_beast/elephant/코끼리.jpeg" alt="Image 4" />
+                <div class="text">
+                    아시아코끼리는 아시아에 서식하는 대형 포유류로, 지능과 사회적 행동으로 유명합니다. <br />
+                    이 거대한 동물은 보통 3미터까지 자라고 몸무게는 5,000킬로그램에 이릅니다.  <br />
+                    아시아코끼리의 특징 중 하나는 긴 코, 즉 코끼리의 코입니다. 이 코는 물을 마시거나 음식을 집을 때 사용됩니다. <br />
+                     먹이로는 주로 풀, 나뭇잎, 과일 등을 섭취하며 하루에 약 150킬로그램의 식물을 먹습니다. 이들은 매우 사회적이며, <br />
+                      무리를 지어 생활하고 서로 의사소통을 위해 다양한 소리와 몸짓을 사용합니다.
+                </div>
+              </div>
             <img class="kr" src="/html/2D_Story/2d_beast/elephant/2d_ele_1.png" alt="Image 1">
             <img class="kr" src="/html/2D_Story/2d_beast/elephant/2d_ele_2.png" alt="Image 2">
             <img class="kr" src="/html/2D_Story/2d_beast/elephant/2d_ele_3.png" alt="Image 3">
+        
             <!-- 영어 버전 이미지 -->
+            <div class="slide en">
+                <img src="/html/2D_Story/2d_beast/elephant/코끼리.jpeg" alt="Image 4" />
+                <div class="text">
+                    The Asian elephant is a large mammal native to Asia, known for its intelligence and social behavior. 
+                    These enormous animals can grow up to 3 meters tall and weigh up to 5,000 kilograms.
+                     One of the most distinctive features of the Asian elephant is its long trunk, 
+                     which it uses for drinking water and picking up food. Their diet primarily consists of grass, leaves, and fruits, and they can consume up to 150 kilograms of vegetation per day.
+                    Asian elephants are highly social creatures, living in groups and communicating through a variety of sounds and gestures.
+                </div>
+              </div>
             <img class="en" src="/html/2D_Story/2d_beast/elephant/2d_ele_1.png" alt="Image 1" style="display: none;">
             <img class="en" src="/html/2D_Story/2d_beast/elephant/2d_ele_2.png" alt="Image 2" style="display: none;">
             <img class="en" src="/html/2D_Story/2d_beast/elephant/2d_ele_3.png" alt="Image 3" style="display: none;">
+
+           
+
         </div>
     </div>
     <button class="prev" onclick="prevSlide()">&#10094;</button>
