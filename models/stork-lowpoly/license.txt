@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stork-lowpoly
+* source:	https://sketchfab.com/3d-models/stork-lowpoly-e449b573c2be4a498f063d22de3248d7
+* author:	Thirrum (https://sketchfab.com/Thirrum)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stork-lowpoly" (https://sketchfab.com/3d-models/stork-lowpoly-e449b573c2be4a498f063d22de3248d7) by Thirrum (https://sketchfab.com/Thirrum) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

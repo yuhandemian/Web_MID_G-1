@@ -1,0 +1,11 @@
+Model Information:
+* title:	Zebra+motions
+* source:	https://sketchfab.com/3d-models/zebramotions-2546097d0ea94ba88452ce62c041fb87
+* author:	Kapi777 (https://sketchfab.com/Kapi777)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Zebra+motions" (https://sketchfab.com/3d-models/zebramotions-2546097d0ea94ba88452ce62c041fb87) by Kapi777 (https://sketchfab.com/Kapi777) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

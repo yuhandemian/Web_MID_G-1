@@ -1,0 +1,11 @@
+Model Information:
+* title:	Kangaroo
+* source:	https://sketchfab.com/3d-models/kangaroo-31236db25afe445e8444b0ce8e22d53d
+* author:	rinaskylark (https://sketchfab.com/rinaskylark)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Kangaroo" (https://sketchfab.com/3d-models/kangaroo-31236db25afe445e8444b0ce8e22d53d) by rinaskylark (https://sketchfab.com/rinaskylark) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

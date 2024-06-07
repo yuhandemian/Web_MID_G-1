@@ -1,0 +1,11 @@
+Model Information:
+* title:	Meerkat
+* source:	https://sketchfab.com/3d-models/meerkat-67ac3222b7434c1490fadd933343abcb
+* author:	zawboo (https://sketchfab.com/zawboo)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Meerkat" (https://sketchfab.com/3d-models/meerkat-67ac3222b7434c1490fadd933343abcb) by zawboo (https://sketchfab.com/zawboo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

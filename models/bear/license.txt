@@ -1,0 +1,11 @@
+Model Information:
+* title:	bear
+* source:	https://sketchfab.com/3d-models/bear-d9b82655d8784ad59d657bb927097634
+* author:	neighbor (https://sketchfab.com/kylekip)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "bear" (https://sketchfab.com/3d-models/bear-d9b82655d8784ad59d657bb927097634) by neighbor (https://sketchfab.com/kylekip) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
