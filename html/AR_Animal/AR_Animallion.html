@@ -4,45 +4,72 @@
     <meta charset="UTF-8">
     <title>My first three.js app with Video Background and GLB Model</title>
     <style>
-        body { margin: 0; overflow: hidden; }
-        canvas { display: block; }
-        #video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-        #overlay { position: fixed; top: 20px; left: 20px; color: black; z-index: 10; }
+        body {
+          margin: 0;
+          overflow: hidden;
+        }
+        canvas {
+          display: block;
+        }
+        #video {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -1;
+        }
+        #overlay {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          color: black;
+          z-index: 10;
+        }
         .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            margin-right: 10px; /* 버튼 사이의 간격 */
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #000;
+          color: #fff;
+          text-decoration: none;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+          margin-right: 10px; /* 버튼 사이의 간격 */
         }
         #description {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
-            color: white;
-            padding: 20px;
-            box-sizing: border-box;
-            font-size: 20px;
-            z-index: 15;
-            text-align: center;
+          display: none; /* 설명을 처음부터 숨김 */
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+          color: white;
+          padding: 20px;
+          box-sizing: border-box;
+          font-size: 20px;
+          z-index: 15;
+          text-align: center;
         }
         #toggleButton {
-            position: fixed; /* Changed from 'right' to 'fixed' */
-            top: 10px;
-            right: 10px; /* Changed from 'left' to 'right' */
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
-            z-index: 102;
+          position: fixed;
+          top: 10px;
+          right: 10px; /* 오른쪽으로 위치 변경 */
+          padding: 10px 20px;
+          background-color: #333;
+          color: white;
+          border: none;
+          cursor: pointer;
+          z-index: 102;
         }
-    </style>
+        @media only screen and (max-width: 1000px) {
+          .btn {
+            font-size: 40px;
+            padding: 8px 16px;
+            margin-bottom: 10px;
+          } /* 버튼 크기 조절 */
+        }
+      </style>
 </head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TMKTYMCBR"></script>
