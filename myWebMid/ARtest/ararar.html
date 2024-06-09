@@ -1,76 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Three.js Screenshot Example</title>
+    <meta charset="utf-8">
+    <title>My first three.js app with Video Background and GLB Model</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
-        body { margin: 0; overflow: hidden; }
-        canvas { display: block; width: 100%; height: 100vh; }
+        * {
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        canvas {
+            display: block;
+        }
+        #video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
         #overlay {
             position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 100;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            z-index: 10;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        .button {
-            padding: 8px 16px;
-            background-color: #0078d7;
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px;
+            background-color: #6200ea;
             color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            text-align: center;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
-            margin: 5px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #3700b3;
+            transform: translateY(-2px);
+        }
+        .btn2-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: grid;
+            gap: 20px;
+            width: 220px;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #6200ea;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn2 img {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .btn2 div {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #fff;
+        }
+        .btn2:hover {
+            background-color: #3700b3;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            #overlay {
+                grid-template-columns: repeat(2, 1fr);
+                width: 90%;
+            }
+            .btn, .btn2 {
+                padding: 20px;
+                font-size: 1.2em;
+            }
+            .btn2-container {
+                width: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+                right: auto;
+                bottom: 20px;
+            }
+            .btn2 img {
+                width: 180px;
+            }
         }
     </style>
 </head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TMKTYMCBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TMKTYMCBR');
+</script>
+
 <body>
+    <video id="video" autoplay muted playsinline></video>
     <div id="overlay">
-        <button class="button" onclick="takeScreenshot()">Take Screenshot</button>
+        <button onclick="location.href='../index.html'" class="btn">
+            <span class="material-icons">home</span> 홈페이지(Homepage)
+        </button>
+        <button onclick="location.href='map.html'" class="btn">
+            <span class="material-icons">map</span> 지도(Map)
+        </button>
+        <button onclick="location.href='search_animal.html'" class="btn">
+            <span class="material-icons">search</span> 동물 찾기(Search Animal)
+        </button>
+        <button onclick="location.href='how_to_use.html'" class="btn">
+            <span class="material-icons">help</span> 사용방법 (How to use)
+        </button>
     </div>
+    <div class="btn2-container">
+        <a href="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" class="btn2">
+            <img src="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" alt="AR 캐릭터 소환서">
+            <div>AR 캐릭터 소환서</div>
+        </a>        
+        <a href="ar_camera.html" class="btn2">
+            <img src="/imgs/camera.jpg" alt="AR 카메라 (AR camera)">
+            <div>AR 카메라</div>
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoyGYa9WWEgagd1SNyL_e6ECVpq9pPlXGE1hoIYAk0jyxQvg/viewform?usp=pp_url" class="btn2">
+            <img src="/imgs/survey.jpg" alt="설문조사 참여하기">
+            <div>설문조사 참여하기</div>
+        </a>
+    </div>
+
     <script type="module">
         import * as THREE from "https://unpkg.com/three@0.126.1/build/three.module.js";
         import { OrbitControls } from "https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js";
+        import { GLTFLoader } from "https://unpkg.com/three@0.126.1/examples/jsm/loaders/GLTFLoader.js";
 
+        // Set up the scene
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
-        const material = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
-        const torusKnot = new THREE.Mesh(geometry, material);
-        scene.add(torusKnot);
+        // Camera stream setup
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+            .then(function(stream) {
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+                video.play();
+            })
+            .catch(function(error) {
+                console.error('Unable to access the camera/webcam.', error);
+            });
 
-        camera.position.z = 50;
+        // Enhanced lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); // Ambient light for soft lighting
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 3.0); // Stronger directional light
+        directionalLight.position.set(-1, -1, 1);
+        scene.add(directionalLight);
 
+        // Load a GLTF model
+        const loader = new GLTFLoader();
+        loader.load('/models/main.glb', function(gltf) {
+            scene.add(gltf.scene);
+            gltf.scene.scale.set(1.5, 1.5, 1.5); // Adjust the scale of the model
+            gltf.scene.position.set(0, -1, 0); // Adjust the position of the model down
+            animate();
+        }, undefined, function(error) {
+            console.error('Error loading the GLB file:', error);
+        });
+
+        // Camera controls
         const controls = new OrbitControls(camera, renderer.domElement);
+        controls.minDistance = 1;
+        controls.maxDistance = 500;
+        camera.position.z = 5;
 
+        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
-            torusKnot.rotation.x += 0.01;
-            torusKnot.rotation.y += 0.01;
             controls.update();
             renderer.render(scene, camera);
         }
+
         animate();
-
-        function takeScreenshot() {
-            renderer.render(scene, camera);
-            const imgData = renderer.domElement.toDataURL("image/png");
-            const a = document.createElement('a');
-            a.href = imgData;
-            a.download = 'screenshot.png';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
-
-        window.addEventListener('resize', function() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
     </script>
 </body>
 </html>

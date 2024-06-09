@@ -13,7 +13,6 @@
         body {
             margin: 0;
             overflow: hidden;
-            font-family: 'Roboto', sans-serif;
             background-color: #f0f0f0;
             color: #333;
         }
@@ -49,11 +48,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px 20px;
+            padding: 20px 30px;
             background-color: #6200ea;
             color: #fff;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.5em;
             font-weight: 500;
             text-align: center;
             border: none;
@@ -66,16 +65,29 @@
             background-color: #3700b3;
             transform: translateY(-2px);
         }
+        .btn2-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
         .btn2 {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 20px;
             background-color: #6200ea;
             color: #fff;
             text-decoration: none;
-            font-size: 1em;
+            font-size: 1.2em;
             font-weight: 500;
             text-align: center;
             border: none;
@@ -92,7 +104,7 @@
         }
         .btn2 div {
             margin-top: 10px;
-            font-size: 0.9em;
+            font-size: 1em;
             color: #fff;
         }
         .btn2:hover {
@@ -107,6 +119,17 @@
             .btn, .btn2 {
                 padding: 20px;
                 font-size: 1em;
+            }
+            .btn2-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                width: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .btn2 img {
+                width: 100px;
             }
         }
     </style>
@@ -136,20 +159,20 @@
         <button onclick="location.href='how_to_use.html'" class="btn">
             <span class="material-icons">help</span> 사용방법 (How to use)
         </button>
-        <div class="btn2-container" style="grid-column: span 4; display: flex; justify-content: space-around;">
-            <a href="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" class="btn2">
-                <img src="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" alt="AR 캐릭터 소환서">
-                <div>AR 캐릭터 소환서</div>
-            </a>        
-            <a href="ar_camera.html" class="btn2">
-                <img src="/imgs/camera.jpg" alt="AR 카메라 (AR camera)">
-                <div>AR 카메라</div>
-            </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoyGYa9WWEgagd1SNyL_e6ECVpq9pPlXGE1hoIYAk0jyxQvg/viewform?usp=pp_url" class="btn2">
-                <img src="/imgs/survey.jpg" alt="설문조사 참여하기">
-                <div>설문조사 참여하기</div>
-            </a>
-        </div>
+    </div>
+    <div class="btn2-container">
+        <a href="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" class="btn2">
+            <img src="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" alt="AR 캐릭터 소환서">
+            <div>AR 캐릭터 소환서</div>
+        </a>        
+        <a href="ar_camera.html" class="btn2">
+            <img src="/imgs/camera.jpg" alt="AR 카메라 (AR camera)">
+            <div>AR 카메라</div>
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoyGYa9WWEgagd1SNyL_e6ECVpq9pPlXGE1hoIYAk0jyxQvg/viewform?usp=pp_url" class="btn2">
+            <img src="/imgs/survey.jpg" alt="설문조사 참여하기">
+            <div>설문조사 참여하기</div>
+        </a>
     </div>
 
     <script type="module">
@@ -187,7 +210,7 @@
         loader.load('/models/main.glb', function(gltf) {
             scene.add(gltf.scene);
             gltf.scene.scale.set(1.5, 1.5, 1.5); // Adjust the scale of the model
-            gltf.scene.position.set(0, -1, 0); // Adjust the position of the model down
+            gltf.scene.position.set(0, -1, 0); // Adjust the position of the model to center
             animate();
         }, undefined, function(error) {
             console.error('Error loading the GLB file:', error);
@@ -197,7 +220,7 @@
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.minDistance = 1;
         controls.maxDistance = 500;
-        camera.position.z = 5;
+        camera.position.set(0, 0, 5); // Center the camera
 
         // Animation loop
         function animate() {

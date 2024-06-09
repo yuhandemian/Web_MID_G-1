@@ -1,66 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Three.js Skybox Example</title>
+    <meta charset="utf-8">
+    <title>My first three.js app with Video Background and GLB Model</title>
     <style>
-        body { margin: 0; }
-        canvas { display: block; width: 100%; height: 100vh; }
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        canvas {
+            display: block;
+        }
+        #video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        #overlay {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10;
+        }
+        .btn, .btn2 {
+            width: 200px;
+            padding: 15px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            border-radius: 5px;
+        }
+        .btn:hover, .btn2:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+        .btn2 img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            #overlay {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            .btn, .btn2 {
+                width: 150px;
+                padding: 10px;
+                font-size: 0.8em;
+            }
+        }
     </style>
 </head>
 <body>
+    <video id="video" autoplay muted playsinline></video>
+    <div id="overlay">
+        <button onclick="location.href='../index.html'" class="btn">홈페이지 (Homepage)</button>
+        <button onclick="location.href='map.html'" class="btn">지도 (Map)</button>
+        <button onclick="location.href='search_animal.html'" class="btn">동물 찾기 (Search Animal)</button>
+        <button onclick="location.href='how_to_use.html'" class="btn">사용방법 (How to use)</button>
+        <a href="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" class="btn2">
+            <img src="https://upload.wikimedia.org/wikiversity/en/0/08/Pattern-hiro.png" alt="AR 캐릭터 소환서">
+        </a>
+        <a href="ar_camera.html" class="btn2">
+            <img src="/imgs/camera.jpg" alt="AR 카메라 (AR camera)">
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoyGYa9WWEgagd1SNyL_e6ECVpq9pPlXGE1hoIYAk0jyxQvg/viewform?usp=pp_url" class="btn2">
+            <img src="/imgs/survey.jpg" alt="설문조사 참여하기">
+            <div style="text-align: center; margin-top: 5px; font-size: 0.8em;">설문조사 참여하기</div>
+        </a>
+    </div>
+
     <script type="module">
         import * as THREE from "https://unpkg.com/three@0.126.1/build/three.module.js";
         import { OrbitControls } from "https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js";
         import { GLTFLoader } from "https://unpkg.com/three@0.126.1/examples/jsm/loaders/GLTFLoader.js";
-        var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-    // 스카이박스 로드를 위한 CubeTextureLoader 초기화
-    var loader = new THREE.CubeTextureLoader();
-    loader.setPath('/models/skybox/'); // 스카이박스 이미지가 위치한 경로
-
-    // 스카이박스 이미지 배열
-    var textureCube = loader.load([
-        'px.jpg', 'nx.jpg',
-        'py.jpg', 'ny.jpg',
-        'pz.jpg', 'nz.jpg'
-    ]);
-    // 카메라 위치 및 방향 조정
-    camera.position.set(10, 10, 10); // 카메라를 원점에서 약간 뒤로 이동
-    camera.lookAt(new THREE.Vector3(0, -10, -1)); // 카메라가 -z 방향을 바라보도록 설정
-
-    scene.background = textureCube; // 스카이박스 설정
-
-    // 간단한 큐브 메쉬 생성
-    var geometry = new THREE.BoxGeometry();
-    var material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
-    var cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    camera.position.z = 5;
-
-    var animate = function () {
-        requestAnimationFrame(animate);
-
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-
-        renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // 창 크기 조정에 대응하기
-    window.addEventListener('resize', function () {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
+        // Set up the scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-</script>
+        document.body.appendChild(renderer.domElement);
+
+        // Camera stream setup
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+            .then(function(stream) {
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+                video.play();
+            })
+            .catch(function(error) {
+                console.error('Unable to access the camera/webcam.', error);
+            });
+
+        // Enhanced lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 3.0);
+        directionalLight.position.set(-1, -1, 1);
+        scene.add(directionalLight);
+
+        // Load a GLTF model
+        const loader = new GLTFLoader();
+        loader.load('/models/main.glb', function(gltf) {
+            scene.add(gltf.scene);
+            gltf.scene.scale.set(1.5, 1.5, 1.5);
+            gltf.scene.position.set(0, -1, 0);
+            animate();
+        }, undefined, function(error) {
+            console.error('Error loading the GLB file:', error);
+        });
+
+        // Camera controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.minDistance = 1;
+        controls.maxDistance = 500;
+        camera.position.z = 5;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
 </body>
 </html>
