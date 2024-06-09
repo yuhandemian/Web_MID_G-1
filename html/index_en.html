@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Children's Grand Park Service</title>
-    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
 
     <!-- JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -57,371 +57,200 @@
     </script>
     <style>
         * {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
         }
         body {
             padding: 0;
             margin: 0;
-            box-sizing: border-box;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
         }
-        .navBar {
+        nav {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            background-color: white;
-            width: 100%;
-            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .navSemiBar1, .navSemiBar2 {
-            width: 100%;
-            justify-content: space-around;
-        }
-        .navSemiBar1 {
-            margin-bottom: 10px;
-        }
-        .navSemiBar2 a {
+        nav a {
             text-decoration: none;
-            color: black;
+            color: #333;
+            font-size: 1.2em;
+            font-weight: 500;
         }
-        button {
-            box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.5);
-            background: #fc6e51;
-        }
-        .navSemiBar2 button {
-            margin-left: 10px;
-        }
-        .LearnBtn {
-            background-color: black;
-            width: 100px;
-            height: 35px;
-            border: 1px solid;
-            border: rgb(177, 220, 113);
-        }
-        .LearnBtn a {
+        .btn {
+            background-color: #6200ea;
             color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        .LearnBtn:hover {
-            background-color: rgb(177, 220, 113);
-            transition: all 0.4s;
-        }
-        .StartBtn {
-            background-color: transparent;
-            color: black;
-            width: 100px;
-            height: 35px;
-            border: 1px solid;
-            border: rgb(177, 220, 113);
-        }
-        .StartBtn:hover {
-            background-color: rgb(177, 220, 113);
-            transition: all 0.4s;
+        .btn:hover {
+            background-color: #3700b3;
+            transform: translateY(-2px);
         }
         .main {
             background-image: url("../imgs/main.png");
             width: 100%;
             height: 80vh;
             background-size: cover;
-            align-items: center;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-        .mainFont {
-            font-size: 30px;
-            color: white;
-            margin: 0 20px;
-        }
-        .mainFont2 {
-            font-size: 16px;
-            margin-top: 10px;
-            color: white;
-        }
-        .LearnBtnMain {
-            background-color: black;
-            width: 100px;
-            height: 35px;
-            border: 1px solid;
-            border: rgb(177, 220, 113);
-        }
-        .LearnBtnMain:hover {
-            background-color: rgb(177, 220, 113);
-            transition: all 0.4s;
-        }
-        .LearnBtnMain a {
-            color: white;
-            text-decoration: none;
-        }
-        .StartBtnMain {
-            background-color: white;
-            color: black;
-            width: 100px;
-            height: 35px;
-            border: 1px solid;
-            border: rgb(177, 220, 113);
-        }
-        .StartBtnMain:hover {
-            background-color: rgb(177, 220, 113);
-            transition: all 0.4s;
-        }
-        .StartBtnMain a {
-            text-decoration: none;
-            color: black;
-        }
-        .main2 {
-            width: 100%;
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            color: white;
             padding: 20px;
         }
-        .firstDiv {
-            font-size: 20px;
-            text-align: center;
+        .main h1 {
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
-        .secDiv {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .main p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
         }
-        .parkImg {
-            margin-top: 20px;
+        .btn-group {
+            display: flex;
+            gap: 20px;
+        }
+        .main2, .main3, .main4, .ReviewDiv, .Album, .subscribe, .teamMember {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .main2 h2, .main3 h2, .main4 h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .main2 p, .main3 p, .main4 p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .image {
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin: 0 auto 20px auto;
+        }
+        .main2 .image {
             background-image: url("../imgs/park1.png");
             width: 300px;
             height: 300px;
-            background-size: cover;
-            border-radius: 10px;
         }
-        .main3 {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .aniImg {
-            margin-top: 20px;
+        .main3 .image {
             background-image: url("../imgs/KakaoTalk_20240425_204219554.gif");
             width: 300px;
             height: 300px;
-            background-size: cover;
-            border-radius: 10px;
         }
-        .main4 {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .firstSemiDiv {
-            font-size: 16px;
-            text-align: center;
-            margin-top: 10px;
-        }
-        .familyDiv {
+        .main4 .image {
+            background-image: url("../imgs/fun.jpg");
             width: 300px;
             height: 300px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-image: url("../imgs/fun.jpg");
-            border-radius: 10px;
-            margin-top: 20px;
         }
-        .main4Container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-top: 10px;
-        }
-        .visit {
-            padding-right: 20px;
-            font-size: 14px;
-        }
-        .liked {
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        .bxSlider {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
+        .ReviewDiv .image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 20px auto;
         }
         .slider img {
             width: 100%;
             height: 200px;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .textInBx1, .textInBx2, .textInBx3, .textInBx4, .textInBx5, .textInBx6 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            font-size: 20px;
-            color: white;
-        }
-        .textInBx1 { background-image: url("../imgs/KakaoTalk_20240425_191510726_03.jpg"); }
-        .textInBx2 { background-image: url("../imgs/KakaoTalk_20240425_191510726_01.jpg"); color: black; }
-        .textInBx3, .textInBx4, .textInBx5, .textInBx6 {
-            width: 100%;
-            background-position: center;
-        }
-        .ReviewDiv {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .ReviewDiv h3 {
-            font-size: 16px;
-            text-align: center;
+            object-fit: cover;
+            border-radius: 10px;
         }
         footer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px;
-        }
-        .subscribe {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .emailInput input, .emailInput button {
-            width: 80%;
-            height: 35px;
-            font-size: 14px;
-        }
-        .emailInput button {
-            background-color: black;
+            background-color: #333;
             color: white;
-            border: 1px solid;
-            border: rgb(177, 220, 113);
-            margin-top: 10px;
-        }
-        .emailInput button:hover {
-            background-color: rgb(177, 220, 113);
-            transition: all 0.4s;
-        }
-        .teamMember {
+            padding: 20px;
             text-align: center;
         }
-        .memberId {
+        footer h1, footer p {
+            margin: 10px 0;
+        }
+        footer .emailInput {
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
         }
-        .member1 {
-            margin-bottom: 10px;
+        footer .emailInput input, footer .emailInput button {
+            width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 1em;
+        }
+        footer .emailInput input {
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+        }
+        footer .emailInput button {
+            background-color: #6200ea;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        footer .emailInput button:hover {
+            background-color: #3700b3;
         }
     </style>
 </head>
 <body>
-    <nav class="navBar">
-        <div class="navSemiBar1">
-            <a>Children's Grand Park Service</a>
-        </div>
-        <div class="navSemiBar2">
-            <button class="LearnBtn">
-                <a class="LearnBtnA" href="">Learn More</a>
-            </button>
-            <button class="StartBtn">
-                <a href="../html/AR_main.html">Start Now</a>
-            </button>
+    <nav>
+        <a href="#">Children's Grand Park Service</a>
+        <div>
+            <a href="#" class="btn">Learn More</a>
+            <a href="../html/AR_main.html" class="btn">Start Now</a>
         </div>
     </nav>
     <section class="main">
-        <div class="mainImg">
-            <div class="mainFont">
-                Explore the World of Magic
-                <div class="mainFont2">
-                    Create unforgettable memories with the interactive AR experience at Children's Grand Park.
-                </div>
-                <button class="LearnBtnMain">
-                    <a class="LearnBtnA">Learn More</a>
-                </button>
-                <button class="StartBtnMain">
-                    <a href="../html/AR_main.html">Start Now</a>
-                </button>
-            </div>
+        <h1>Explore the World of Magic</h1>
+        <p>Create unforgettable memories with the interactive AR experience at Children's Grand Park.</p>
+        <div class="btn-group">
+            <a href="#" class="btn">Learn More</a>
+            <a href="../html/AR_main.html" class="btn">Start Now</a>
         </div>
     </section>
     <section class="main2">
-        <div class="firstDiv">
-            Start an Interactive Adventure at Children's Grand Park
-        </div>
-        <div class="secDiv">
-            <div class="parkImg"></div>
-        </div>
+        <h2>Start an Interactive Adventure at Children's Grand Park</h2>
+        <div class="image"></div>
     </section>
     <section class="main3">
-        <div class="firstDiv">
-            Meet Our Mascot <br> Living in Children's Grand Park
-        </div>
-        <div class="aniImg"></div>
+        <h2>Meet Our Mascot</h2>
+        <p>Living in Children's Grand Park</p>
+        <div class="image"></div>
     </section>
     <section class="main4">
-        <div class="main4First">
-            <div class="firstSemi">
-                Experience the Wonders of Children's Grand Park with Augmented Reality Adventures.
-            </div>
-            <div class="firstSemiDiv">
-                Immerse yourself in a virtual AR guide to Children's Grand Park and create unforgettable experiences with interactive opportunities.
-            </div>
-            <div class="main4Container">
-                <div class="visit">
-                    <div class="website-counter">3476 people visited us</div>
-                    Explore the park with our immersive augmented reality features.
-                </div>
-                <div class="liked">
-                    <h3>91% Satisfied Visitors</h3>
-                    An overwhelming majority of visitors left with smiles on their faces.
-                </div>
-            </div>
-        </div>
-        <div class="secDiv0101">
-            <div class="familyDiv"></div>
-        </div>
+        <h2>Experience the Wonders of Children's Grand Park with Augmented Reality Adventures</h2>
+        <p>Immerse yourself in a virtual AR guide to Children's Grand Park and create unforgettable experiences with interactive opportunities.</p>
+        <div class="image"></div>
     </section>
-    <section class="Album" style="display: flex; justify-content: center; align-items: center; font-size: 30px; font-weight: normal;">
-        <p>Our Album</p>
-    </section>
-    <section class="bxSlider">
+    <section class="Album">
+        <h2>Our Album</h2>
         <div class="slider">
-            <div class="textInBx1"></div>
-            <div class="textInBx2"></div>
-            <div class="textInBx3"></div>
-            <div class="textInBx4"></div>
-            <div class="textInBx5"></div>
-            <div class="textInBx6"></div>
+            <div><img src="../imgs/KakaoTalk_20240425_191510726_03.jpg" alt="Image 1"></div>
+            <div><img src="../imgs/KakaoTalk_20240425_191510726_01.jpg" alt="Image 2"></div>
+            <div><img src="../imgs/KakaoTalk_20240425_191510726_01.jpg" alt="Image 3"></div>
+            <div><img src="../imgs/KakaoTalk_20240425_191510726_01.jpg" alt="Image 4"></div>
+            <div><img src="../imgs/KakaoTalk_20240425_191510726_01.jpg" alt="Image 5"></div>
+            <div><img src="../imgs/KakaoTalk_20240425_191510726_01.jpg" alt="Image 6"></div>
         </div>
     </section>
     <section class="ReviewDiv">
-        <div>
-            <img src="../imgs/Vector.png" alt="" style="width: 30px">
-            <img src="../imgs/Vector.png" alt="" style="width: 30px">
-            <img src="../imgs/Vector.png" alt="" style="width: 30px">
-            <img src="../imgs/Vector.png" alt="" style="width: 30px">
-            <img src="../imgs/Vector.png" alt="" style="width: 30px">
-        </div>
-        <div>
-            <h3>
-                The AR experiences provided by the Children's Grand Park website are amazing.
-                The kids were completely immersed in a world of adventure and magic. It was an unforgettable experience for the whole family.
-            </h3>
-        </div>
-        <div>
-            <img src="" alt="">
-            <h4>John Doe</h4>
-        </div>
+        <img src="../imgs/Vector.png" alt="" class="image">
+        <h3>The AR experiences provided by the Children's Grand Park website are amazing. The kids were completely immersed in a world of adventure and magic. It was an unforgettable experience for the whole family.</h3>
+        <h4>John Doe</h4>
     </section>
     <footer>
         <div class="subscribe">
@@ -436,15 +265,11 @@
         <div class="teamMember">
             <h1>Our Team Members</h1>
             <div class="memberId">
-                <div class="member1">
-                    <p>Bakytov Yelnur</p>
-                    <p>Lee ChangKyu</p>
-                    <p>Park YuHan</p>
-                </div>
-                <div class="member1">
-                    <p>Jung DaHan</p>
-                    <p>Ibrokhimov Jakhongir Ibrokhim Ugli</p>
-                </div>
+                <p>Bakytov Yelnur</p>
+                <p>Lee ChangKyu</p>
+                <p>Park YuHan</p>
+                <p>Jung DaHan</p>
+                <p>Ibrokhimov Jakhongir Ibrokhim Ugli</p>
             </div>
         </div>
     </footer>
