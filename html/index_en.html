@@ -70,24 +70,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 10px 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         nav a {
             text-decoration: none;
             color: #333;
-            font-size: 1.2em;
+            font-size: 1em;
             font-weight: 500;
         }
         .btn {
             background-color: #6200ea;
             color: white;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border: none;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 1em;
+            font-size: 0.9em;
             font-weight: 500;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
@@ -111,28 +111,28 @@
             padding: 20px;
         }
         .main h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        .main p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        .btn-group {
-            display: flex;
-            gap: 20px;
-        }
-        .main2, .main3, .main4, .ReviewDiv, .Album, .subscribe, .teamMember {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .main2 h2, .main3 h2, .main4 h2 {
             font-size: 2em;
             margin-bottom: 20px;
         }
+        .main p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+        .main2, .main3, .main4, .ReviewDiv, .Album, .subscribe, .teamMember {
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .main2 h2, .main3 h2, .main4 h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
         .main2 p, .main3 p, .main4 p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1em;
+            margin-bottom: 20px;
         }
         .image {
             background-size: cover;
@@ -142,18 +142,18 @@
         }
         .main2 .image {
             background-image: url("../imgs/park1.png");
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
         }
         .main3 .image {
             background-image: url("../imgs/KakaoTalk_20240425_204219554.gif");
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
         }
         .main4 .image {
             background-image: url("../imgs/fun.jpg");
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
         }
         .ReviewDiv .image {
             width: 100px;
@@ -204,13 +204,42 @@
         footer .emailInput button:hover {
             background-color: #3700b3;
         }
+        @media (max-width: 600px) {
+            nav a {
+                font-size: 0.9em;
+            }
+            .btn {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+            .main h1 {
+                font-size: 1.5em;
+            }
+            .main p {
+                font-size: 0.9em;
+            }
+            .btn-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .main2 h2, .main3 h2, .main4 h2 {
+                font-size: 1.5em;
+            }
+            .main2 p, .main3 p, .main4 p {
+                font-size: 0.9em;
+            }
+            .main2 .image, .main3 .image, .main4 .image {
+                width: 200px;
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="#">Children's Grand Park Service</a>
         <div>
-            <a href="#" class="btn">Learn More</a>
+            <a href="#" class="btn LearnBtn">Learn More</a>
             <a href="../html/AR_main.html" class="btn">Start Now</a>
         </div>
     </nav>
@@ -218,7 +247,7 @@
         <h1>Explore the World of Magic</h1>
         <p>Create unforgettable memories with the interactive AR experience at Children's Grand Park.</p>
         <div class="btn-group">
-            <a href="#" class="btn">Learn More</a>
+            <a href="#" class="btn LearnBtnMain">Learn More</a>
             <a href="../html/AR_main.html" class="btn">Start Now</a>
         </div>
     </section>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>어린이 대공원 서비스</title>
-    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -24,13 +23,14 @@
         body {
             padding: 0;
             margin: 0;
+            overflow-x: hidden;
         }
         .main {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
             background-image: url('../imgs/happyFamily.png');
             background-size: cover;
@@ -48,14 +48,14 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
         .languageSelection {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 500;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .description {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 25px;
         }
         .languageButtons {
             display: flex;
@@ -66,9 +66,9 @@
             background-color: #6200ea;
             color: white;
             border: none;
-            padding: 12px 25px;
-            margin: 10px;
-            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
             font-weight: 500;
             cursor: pointer;
             border-radius: 8px;
@@ -78,7 +78,7 @@
             align-items: center;
         }
         .languageButtons button .material-icons {
-            margin-right: 8px;
+            margin-right: 6px;
         }
         .languageButtons button:hover {
             background-color: #3700b3;
@@ -86,11 +86,32 @@
         }
         .ctaButton {
             background-color: #03dac6;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
         }
         .ctaButton:hover {
             background-color: #018786;
+        }
+        @media (max-width: 600px) {
+            .main {
+                padding: 10px;
+            }
+            .overlay {
+                padding: 20px;
+            }
+            .languageSelection {
+                font-size: 20px;
+            }
+            .description {
+                font-size: 14px;
+            }
+            .languageButtons button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+            .ctaButton {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
