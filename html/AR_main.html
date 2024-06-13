@@ -49,7 +49,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px 30px;
-            background-color: #6200ea;
+            background-color: #FF9800; /* 주황색 */
             color: #fff;
             text-decoration: none;
             font-size: 1.5em;
@@ -62,15 +62,15 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .btn:hover {
-            background-color: #3700b3;
+            background-color: #F57C00; /* 주황색의 더 진한 색상 */
             transform: translateY(-2px);
         }
         .btn2-container {
             position: fixed;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 20px;
             display: flex;
+            flex-direction: column;
             gap: 20px;
             z-index: 10;
             background-color: rgba(255, 255, 255, 0.9);
@@ -84,7 +84,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            background-color: #6200ea;
+            background-color: #FF9800; /* 주황색 */
             color: #fff;
             text-decoration: none;
             font-size: 1.2em;
@@ -108,28 +108,30 @@
             color: #fff;
         }
         .btn2:hover {
-            background-color: #3700b3;
+            background-color: #F57C00; /* 주황색의 더 진한 색상 */
             transform: translateY(-2px);
         }
         @media (max-width: 600px) {
             #overlay {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
                 width: 90%;
+                padding: 40px;
             }
-            .btn, .btn2 {
+            .btn {
                 padding: 20px;
-                font-size: 1em;
+                font-size: 1.2em;
             }
             .btn2-container {
-                flex-direction: column;
-                align-items: center;
+                right: 10px;
+                bottom: 10px;
                 gap: 10px;
-                width: 90%;
-                left: 50%;
-                transform: translateX(-50%);
+            }
+            .btn2 {
+                padding: 15px;
+                font-size: 1em;
             }
             .btn2 img {
-                width: 100px;
+                width: 80px;
             }
         }
     </style>
